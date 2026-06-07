@@ -22,16 +22,6 @@
     flake = "/persistent/etc/nixos/";
   };
 
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "Aditya";
-        email = "85212821+Ankh64@users.noreply.github.com";
-      };
-      init.defaultBranch = "main";
-    };
-  };
 
 
   systemd.services = {
@@ -100,7 +90,6 @@
     '';
   };
   networking.firewall.allowedTCPPorts = [ 8082 ];
-  system.copySystemConfiguration = true;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
