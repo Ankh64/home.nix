@@ -1,0 +1,74 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# A minimal left prompt
+right_format = """{\
+$shell\
+$os\
+$netns\
+$container\
+$status\
+$jobs\
+$line_break\
+$sudo\
+$custom\
+$env_var\
+$direnv\
+$meson\
+$nix_shell\
+$git_status\
+$git_metrics\
+$git_state\
+$git_commit\
+$git_branch\
+
+$localip}\
+"""
+
+[character]
+success_symbol = "[}](purple)"
+error_symbol = "[}](red)"
+
+# move the rest of the prompt to the right
+format = '''
+$username$hostname:
+$directory[}](bold purple) 
+'''
+
+[direnv]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+format = ', [$path]($style)}[$read_only]($read_only_style)'
+
+[git_branch]
+symbol = " "
+format = ' [$symbol$branch(:$remote_branch)]($style)'
+
+[git_commit]
+tag_symbol = '  '
+
+[hostname]
+format = '[$hostname](blue)'
+
+[memory_usage]
+disabled = true
+
+[nix_shell]
+symbol = " "
+
+[status]
+symbol = " "
+
+[sudo]
+symbol = " "
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
+
+[username]
+format = '{[$user]($style)@'
+
+[cmd_duration]
+disabled = true
+

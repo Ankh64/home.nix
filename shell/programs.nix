@@ -4,6 +4,7 @@
     ./zellij.nix
     ./helix.nix
   ];
+
   programs.git = {
     enable = true;
     settings = {
@@ -14,10 +15,12 @@
       init.defaultBranch = "main";
     };
   };
+
   programs.gh = {
     enable = true;
     gitCredentialHelper.enable = true;
   };
+
   programs.btop = {
     enable = true;
     settings.color_theme = "everforest-dark-hard";
@@ -30,6 +33,7 @@
     silent = true;
     enableFishIntegration = true;
   };
+
   programs.nnn = {
     enable = true;
     enableFishIntegration = true;
@@ -38,7 +42,14 @@
       d = "~/Documents";
     };
   };
-  programs.starship.enable = true;
+
+  programs.starship = {
+    enable = true;
+    enableTransience = true;
+  };
+  home.file = {
+    ".config/starship.toml".source = ./starship.toml;
+  };
   programs.bat = {
     enable = true;
     config = {
@@ -52,4 +63,5 @@
     enable = true;
     enableFishIntegration = true;
   };
+  programs.ripgrep.enable = true;
 }
