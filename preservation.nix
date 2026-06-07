@@ -54,7 +54,7 @@
           directory = "/var/lib/nixos";
           inInitrd = true;
         }
-          "/var/lib/tailscale"
+        "/var/lib/tailscale"
         "/var/log"
         "/etc/NetworkManager/system-connections"
       ];
@@ -72,6 +72,7 @@
           "Documents"
           ".local"
           ".config"
+          ".cache/nix"
         ];
       };
       users.root = {
