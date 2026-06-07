@@ -2,7 +2,7 @@
 {
   home.username = "adi";
   home.homeDirectory = "/home/adi";
-  import = [
+  imports = [
     ./shell/shell.nix
   ];
   home.stateVersion = "26.05";

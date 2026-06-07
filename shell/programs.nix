@@ -1,9 +1,19 @@
 { pkgs, ... }:
 {
-  import = [
+  imports = [
     ./zellij.nix
     ./helix.nix
   ];
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name = "Aditya";
+        email = "85212821+Ankh64@users.noreply.github.com";
+      };
+      init.defaultBranch = "main";
+    };
+  };
   programs.gh = {
     enable = true;
     gitCredentialHelper.enable = true;
