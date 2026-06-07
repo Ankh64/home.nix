@@ -1,10 +1,4 @@
 {
-  #systemd.services.systemd-machine-id-commit = {
-  #	unitConfig.ConditionPathIsMountPoint = [ "" "/etc/machine-id" ];
-  #};
-  #systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ]
-  # Point /etc/machine-id directly to your persistent storage file as a symlink
-  #environment.etc."machine-id".source = "/persistent/etc/machine-id";
   systemd.services.systemd-machine-id-commit = {
     unitConfig.ConditionPathIsMountPoint = [
       ""

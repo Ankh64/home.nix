@@ -22,8 +22,6 @@
     flake = "/persistent/etc/nixos/";
   };
 
-
-
   systemd.services = {
     disable-wifi-powersave = {
       description = "Disable Wi-Fi Power Saving for wlp2s0";
@@ -65,8 +63,8 @@
     extraGroups = [
       "wheel"
       "networkmanager"
-    ]; 
-    #initialPassword = "letmein";
+    ];
+    # initialPassword = "letmein";
     hashedPassword = "$6$rounds=40000$Wx6ha4zrwDVDDSoe$QCf78yMjK6ZUx8e5ACG584WJuIu2t6LIVgwCwhhTcFkHy8gsAQ.7m1F8I9rLRR4NL7du/VLvAFZXD1UDXyXEW/";
     packages = with pkgs; [
       tree

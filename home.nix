@@ -21,5 +21,4 @@
     XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
   };
 
-
 }

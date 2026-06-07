@@ -45,9 +45,9 @@
       theme = "base16";
     };
   };
-  
+
   programs.eza.enable = true;
- 
+
   programs.carapace = {
     enable = true;
     enableFishIntegration = true;

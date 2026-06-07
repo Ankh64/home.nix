@@ -1,4 +1,4 @@
-{config, ...}:
+{ config, ... }:
 {
   imports = [
     ./programs.nix
@@ -71,7 +71,7 @@
         '';
       };
     };
-};
+  };
 
   programs.zsh = {
     enable = true;

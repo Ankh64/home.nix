@@ -13,7 +13,6 @@
     nixosConfigurations.nix = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        #inputs.home-manager.nixosModules.default
         inputs.disko.nixosModules.disko
         inputs.preservation.nixosModules.default
         ./configuration.nix
@@ -24,7 +23,6 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = ".bck";
-          # Links your user configuration to the home.nix file
           home-manager.users.adi = import ./home.nix;
         }
       ];
