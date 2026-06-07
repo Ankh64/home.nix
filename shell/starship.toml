@@ -1,7 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # A minimal left prompt
-right_format = """{\
+right_format = """
+{\
 $shell\
 $os\
 $netns\
@@ -16,46 +17,70 @@ $direnv\
 $meson\
 $nix_shell\
 $git_status\
-$git_metrics\
 $git_state\
 $git_commit\
 $git_branch\
-
-$localip}\
+$localip\
+$time\
 """
 
 [character]
-success_symbol = "[}](purple)"
-error_symbol = "[}](red)"
+success_symbol = "[}](magenta)"
+error_symbol = "[}](orange)"
 
 # move the rest of the prompt to the right
-format = '''
-$username$hostname:
-$directory[}](bold purple) 
-'''
+format = """
+$username\
+$hostname\
+$directory
+[}](bold purple) 
+"""
+
+[cmd_duration]
+disabled = true
+
+[time]
+format = '[$time]($style)}'
+time_format = "%R"
 
 [direnv]
 symbol = " "
 
 [directory]
 read_only = " 󰌾"
-format = ', [$path]($style)}[$read_only]($read_only_style)'
+format = ', [$path]($style)[$read_only]($read_only_style)}:'
 
 [git_branch]
 symbol = " "
-format = ' [$symbol$branch(:$remote_branch)]($style)'
+format = '[$symbol$branch(:$remote_branch)]($style)'
 
 [git_commit]
 tag_symbol = '  '
+format = '[\($hash$tag\)]($style), '
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\), '
+
+[git_status]
+format = '([$all_status$ahead_behind](bold), )'
+renamed = '[R](blue)'
+deleted = '[D](red)'
+modified = '[*](yellow)'
+stashed = '[\$](orange)'
+ahead = ', [](yellow)'
+behind = ', [](orange)'
+conflicted = ', [](red)'
+diverged = ', [](magenta)'
+untracked = '[+](green)'
 
 [hostname]
 format = '[$hostname](blue)'
 
-[memory_usage]
-disabled = true
-
 [nix_shell]
-symbol = " "
+symbol = "  "
+format = '[$symbol$name]($style), '
+pure_msg = ''
+impure_msg = ''
 
 [status]
 symbol = " "
@@ -63,12 +88,5 @@ symbol = " "
 [sudo]
 symbol = " "
 
-[git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
-
 [username]
 format = '{[$user]($style)@'
-
-[cmd_duration]
-disabled = true
-

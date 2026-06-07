@@ -13,6 +13,11 @@
       ez = "eza --icons";
     };
     functions = {
+      starship_transient_prompt_func = {
+        body = ''
+          starship module character
+        '';
+      };
       n = {
         description = "nnn wrapper with quitcd";
         body = ''
