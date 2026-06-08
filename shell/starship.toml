@@ -3,6 +3,19 @@
 # A minimal left prompt
 right_format = """
 {\
+$cmd_duration\
+$time\
+}\
+"""
+
+# move the rest of the prompt to the right
+format = """
+{\
+$username\
+$sudo\
+$hostname\
+$directory\
+} {\
 $c\
 $cpp\
 $dart\
@@ -30,16 +43,7 @@ $git_status\
 $git_state\
 $git_commit\
 $git_branch\
-$time\
-}\
-"""
-
-# move the rest of the prompt to the right
-format = """
-$username\
-$sudo\
-$hostname\
-$directory
+}:
 [}](bold purple) 
 """
 
@@ -48,11 +52,14 @@ success_symbol = "[}](magenta)"
 error_symbol = "[}](orange)"
 
 [cmd_duration]
-disabled = true
+disabled = false
+format = '[$duration]($style), '
+style = 'red'
 
 [time]
 format = '[$time]($style)'
 time_format = "%R"
+style = 'yellow'
 disabled = false
 
 [direnv]
@@ -60,11 +67,11 @@ symbol = " "
 
 [directory]
 read_only = " 󰌾"
-format = ', [$path]($style)[$read_only]($read_only_style)}:'
+format = ', [$path](blue)[$read_only](yellow bold)'
 
 [git_branch]
 symbol = " "
-format = '[$symbol$branch(:$remote_branch)]($style), '
+format = '[$symbol](bold purple)[$branch(:$remote_branch)](purple)'
 
 [git_commit]
 tag_symbol = '  '
@@ -83,7 +90,7 @@ ahead = ', [](yellow)'
 behind = ', [](orange)'
 conflicted = ', [](red)'
 diverged = ', [](magenta)'
-untracked = '[+](green)'
+untracked = '[N](green)'
 
 [hostname]
 format = '[$hostname](blue)'
@@ -99,7 +106,7 @@ symbol = " "
 format = ':[$symbol]($style)'
 
 [username]
-format = '{[$user]($style)@'
+format = '[$user]($style)@'
 
 [bun]
 symbol = " "
