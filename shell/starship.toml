@@ -3,45 +3,57 @@
 # A minimal left prompt
 right_format = """
 {\
-$shell\
-$os\
-$netns\
-$container\
-$status\
-$jobs\
-$line_break\
-$sudo\
-$custom\
-$env_var\
-$direnv\
-$meson\
+$c\
+$cpp\
+$dart\
+$fortran\
+$gleam\
+$golang\
+$haskell\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nodejs\
+$ocaml\
+$odin\
+$perl\
+$php\
+$python\
+$ruby\
+$rust\
+$scala\
+$swift\
+$zig\
 $nix_shell\
 $git_status\
 $git_state\
 $git_commit\
 $git_branch\
-$localip\
 $time\
+}\
+"""
+
+# move the rest of the prompt to the right
+format = """
+$username\
+$sudo\
+$hostname\
+$directory
+[}](bold purple) 
 """
 
 [character]
 success_symbol = "[}](magenta)"
 error_symbol = "[}](orange)"
 
-# move the rest of the prompt to the right
-format = """
-$username\
-$hostname\
-$directory
-[}](bold purple) 
-"""
-
 [cmd_duration]
 disabled = true
 
 [time]
-format = '[$time]($style)}'
-time_format = "%R"
+format = '[$time]($style)'
+time_format = ", %R"
+disabled = false
 
 [direnv]
 symbol = " "
@@ -77,16 +89,142 @@ untracked = '[+](green)'
 format = '[$hostname](blue)'
 
 [nix_shell]
-symbol = "  "
-format = '[$symbol$name]($style), '
+symbol = " "
+format = '[$symbol]($style), '
 pure_msg = ''
 impure_msg = ''
 
-[status]
-symbol = " "
-
 [sudo]
 symbol = " "
+format = ':[$symbol]($style)'
 
 [username]
 format = '{[$user]($style)@'
+
+[bun]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[c]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[cpp]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[cmake]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[crystal]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[dart]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[deno]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[elixir]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[erlang]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[fennel]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[fortran]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[gleam]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[golang]
+symbol = "󰟓 "
+format = '[$symbol($major.$minor)]($style)'
+
+[gradle]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[haskell]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[java]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[julia]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[kotlin]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[lua]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[meson]
+symbol = "󰔷 "
+format = '[$symbol($major.$minor)]($style)'
+
+[mojo]
+symbol = "󰈸 "
+format = '[$symbol($major.$minor)]($style)'
+
+[nodejs]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[ocaml]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[odin]
+symbol = "󰟢 "
+format = '[$symbol($major.$minor)]($style)'
+
+[perl]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[php]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[python]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[ruby]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[rust]
+symbol = "󱘗 "
+format = '[$symbol($major.$minor)]($style)'
+
+[scala]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[swift]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
+
+[zig]
+symbol = " "
+format = '[$symbol($major.$minor)]($style)'
