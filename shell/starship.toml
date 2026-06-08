@@ -52,7 +52,7 @@ disabled = true
 
 [time]
 format = '[$time]($style)'
-time_format = ", %R"
+time_format = "%R"
 disabled = false
 
 [direnv]
@@ -64,7 +64,7 @@ format = ', [$path]($style)[$read_only]($read_only_style)}:'
 
 [git_branch]
 symbol = " "
-format = '[$symbol$branch(:$remote_branch)]($style)'
+format = '[$symbol$branch(:$remote_branch)]($style), '
 
 [git_commit]
 tag_symbol = '  '
@@ -103,128 +103,128 @@ format = '{[$user]($style)@'
 
 [bun]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [c]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [cpp]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [cmake]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [crystal]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [dart]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [deno]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [elixir]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [erlang]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [fennel]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [fortran]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [gleam]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [golang]
 symbol = "󰟓 "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [gradle]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [haskell]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [java]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [julia]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [kotlin]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [lua]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [meson]
 symbol = "󰔷 "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [mojo]
 symbol = "󰈸 "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [nodejs]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [ocaml]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [odin]
 symbol = "󰟢 "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [perl]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [php]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [python]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [ruby]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [rust]
 symbol = "󱘗 "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [scala]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [swift]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '
 
 [zig]
 symbol = " "
-format = '[$symbol($major.$minor)]($style)'
+format = '[$symbol]($style), '

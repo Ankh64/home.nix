@@ -86,6 +86,7 @@
     extraConfig = ''
       AcceptEnv COLORTERM TERM
     '';
+    settings.X11Forwarding = true;
   };
   networking.firewall.allowedTCPPorts = [ 8082 ];
   nix.settings.experimental-features = [

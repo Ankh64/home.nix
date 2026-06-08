@@ -67,6 +67,7 @@
           ".local"
           ".config"
           ".cache/nix"
+          ".templates"
         ];
       };
       users.root = {

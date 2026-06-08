@@ -42,8 +42,9 @@
       };
       devinit = {
         body = ''
-          nix flake new -t github:nix-community/nix-direnv .
-          echo "use nix" > .envrc
+          touch .envrc
+          echo "use flake" > .envrc
+          cp ~/.templates/flake.nix ./
           direnv allow
         '';
       };
