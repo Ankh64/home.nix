@@ -11,6 +11,7 @@
     '';
     shellAliases = {
       ez = "eza --icons";
+      gui = "WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/$(id -u)";
     };
     functions = {
       starship_transient_prompt_func = {

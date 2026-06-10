@@ -10,6 +10,9 @@
     nixfmt
     nil
     jujutsu
+    foot
+    wmenu
+    emacs-pgtk
   ];
   home.sessionPath = [
     "${config.home.homeDirectory}/.local/bin"
