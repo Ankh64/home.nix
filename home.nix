@@ -13,6 +13,8 @@
     foot
     wmenu
     emacs-pgtk
+    nerd-fonts.jetbrains-mono
+    jetbrains-mono
   ];
   home.sessionPath = [
     "${config.home.homeDirectory}/.local/bin"

@@ -13,7 +13,7 @@
   programs.mosh.enable = true;
   services.tailscale.enable = true;
   services.tailscale.extraDaemonFlags = [ "--no-logs-no-support" ];
-
+  nixpkgs.config.allowUnfree = true;
   programs.nh = {
     enable = true;
     clean.enable = true;
@@ -39,7 +39,6 @@
     };
   };
   security.polkit.enable = true;
-
   services.asusd.enable = true;
   security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
   boot.extraModprobeConfig = ''
