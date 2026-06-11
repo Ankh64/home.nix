@@ -69,56 +69,52 @@
     packages = with pkgs; [
       tree
       wget
-      wayvnc
-      xwayland
-      wlr-randr
+      i3
+      xterm
+      tigervnc
     ];
     linger = true;
     shell = pkgs.zsh;
   };
-  systemd.user.services.sway-vnc = {
-    description = "Sway compositor with wayvnc";
+  systemd.user.services.start-vnc = {
+    description = "i3 desktop over VNC";
     after = [ "default.target" ];
-    # NOT wantedBy anything — so it does NOT start on boot
-
-    environment = {
-      WLR_BACKENDS        = "headless";
-      WLR_LIBINPUT_NO_DEVICES = "1";   # no input devices on headless
-      XDG_RUNTIME_DIR     = "/run/user/1000";  # adjust UID if needed
-      WAYLAND_DISPLAY     = "wayland-1";
-    };
-
+    # still not started on boot — manual only
+    path = with pkgs; [
+      i3
+      tigervnc
+    ];
     serviceConfig = {
-      Type       = "simple";
-      ExecStartPre = "${pkgs.sway}/bin/sway --version"; # sanity check
-      ExecStart  = pkgs.writeShellScript "sway-vnc-start" ''
-        # Start sway in headless mode in the background
-        ${pkgs.sway}/bin/sway &
-        SWAY_PID=$!
+      Type = "simple";
+      ExecStart = pkgs.writeShellScript "start-vnc" ''
+  # Start Xvnc in background
+  ${pkgs.tigervnc}/bin/Xvnc :1 \
+    -geometry 1920x1080 \
+    -depth 24 \
+    -rfbport 5900 \
+    -SecurityTypes None \
+    -localhost no &
+  
+  # Wait for X socket to appear
+  for i in $(seq 1 20); do
+    [ -S /tmp/.X11-unix/X1 ] && break
+    sleep 0.5
+  done
 
-        # Wait for the Wayland socket to appear
-        sleep 2
+  if [ ! -S /tmp/.X11-unix/X1 ]; then
+    echo "Xvnc never started"
+    exit 1
+  fi
 
-        # Create a virtual output (1920x1080 headless display)
-        ${pkgs.wlr-randr}/bin/wlr-randr --output HEADLESS-1 --mode 1920x1080
-
-        # Start wayvnc on all interfaces, port 5900
-        ${pkgs.wayvnc}/bin/wayvnc 0.0.0.0 5900
-
-        wait $SWAY_PID
-      '';
-      ExecStopPost = "${pkgs.procps}/bin/pkill wayvnc || true";
-      Restart    = "no";
-    };
+  # Now start i3
+  DISPLAY=:1 ${pkgs.i3}/bin/i3
+'';};
   };
 
-  
   programs.zsh.enable = true;
   environment.systemPackages = with pkgs; [
     vim
     lm_sensors
-    nushell
-    sway
     ghostty.terminfo
   ];
 
